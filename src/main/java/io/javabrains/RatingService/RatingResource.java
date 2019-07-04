@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RatingResource {
     @RequestMapping("/{movieId}")
     public Rating getRating(@PathVariable("movieId") String movieId){
-        return new Rating(movieId, 4);
+        return new Rating(movieId, (int) Math.random() * 5);
     }
 }
