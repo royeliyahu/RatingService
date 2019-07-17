@@ -1,5 +1,7 @@
 package io.javabrains.RatingService;
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -39,6 +41,10 @@ public class RatingDataServiceApplicationTests {
 
 	@Test
 	public void test() throws Exception {
+//	    RestAssured restAssured;
+//		Response response = RestAssured.get("/ratingdata/users/5");
+//		System.err.println(response.toString());
+
 		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/ratingdata/5").accept(MediaType.APPLICATION_JSON)).andReturn();
 		System.err.println(mvcResult.getResponse().getContentAsString());
 		assertTrue(mvcResult.getResponse().getContentAsString().contains("{\"movieId\":\"5\",\"rating\":"));
